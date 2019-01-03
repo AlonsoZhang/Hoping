@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Hoping" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -682,12 +684,14 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <windowController id="B8D-0N-5wS" customClass="Window" customModule="Hoping" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES"/>
+                        <windowPositionMask key="initialPositionMask" bottomStrut="YES"/>
+                        <rect key="contentRect" x="0.0" y="0.0" width="800" height="10"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="800" height="10"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -696,22 +700,76 @@
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
                     </connections>
                 </windowController>
-                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
+                <menu id="tKa-MP-s6e">
+                    <items>
+                        <menuItem title="Reset" id="7CH-g4-zEe">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="Reset:" target="XfG-lQ-9wD" id="oKi-v4-LKi"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Quit" id="3Hu-iu-0v0">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="Quit:" target="XfG-lQ-9wD" id="zXP-e2-vnz"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Hoping" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <progressIndicator wantsLayer="YES" maxValue="100" doubleValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="AhU-ss-Wnf">
+                                <rect key="frame" x="0.0" y="-1" width="800" height="20"/>
+                                <contentFilters>
+                                    <ciFilter name="CIHueAdjust">
+                                        <configuration>
+                                            <real key="inputAngle" value="2"/>
+                                            <null key="inputImage"/>
+                                        </configuration>
+                                    </ciFilter>
+                                </contentFilters>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SEm-YA-qxl">
+                                <rect key="frame" x="738" y="0.0" width="64" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="eDE-v5-fLj"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="00:00:00" id="s3j-NK-jnb">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="SEm-YA-qxl" firstAttribute="centerY" secondItem="AhU-ss-Wnf" secondAttribute="centerY" id="7OJ-tF-YGE"/>
+                            <constraint firstAttribute="bottom" secondItem="SEm-YA-qxl" secondAttribute="bottom" id="EEf-WW-byq"/>
+                            <constraint firstAttribute="bottom" secondItem="AhU-ss-Wnf" secondAttribute="bottom" id="FWh-qh-ycq"/>
+                            <constraint firstAttribute="trailing" secondItem="SEm-YA-qxl" secondAttribute="trailing" id="Flj-Rz-pfU"/>
+                            <constraint firstItem="AhU-ss-Wnf" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="OYK-wX-RYC"/>
+                            <constraint firstItem="SEm-YA-qxl" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="UPE-tO-OCI"/>
+                            <constraint firstItem="AhU-ss-Wnf" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="WgQ-4m-gtr"/>
+                            <constraint firstAttribute="trailing" secondItem="AhU-ss-Wnf" secondAttribute="trailing" id="Wwl-QD-IhB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="hopingProgress" destination="AhU-ss-Wnf" id="Iw9-c0-wg5"/>
+                        <outlet property="myLabel" destination="SEm-YA-qxl" id="FCK-1c-No0"/>
+                        <outlet property="myMenu" destination="tKa-MP-s6e" id="YYy-U3-Epm"/>
+                    </connections>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="541"/>
         </scene>
     </scenes>
 </document>
