@@ -17,6 +17,7 @@ class ViewController: NSViewController {
     lazy var font = NSFont()
     var timer: Timer?
     let dateFormatter = DateFormatter()
+    let daydateFormatter = DateFormatter()
     var totaltime = 0
     var liberateTimeStr = ""
     
@@ -25,7 +26,6 @@ class ViewController: NSViewController {
         let file = Bundle.main.path(forResource:"Config", ofType: "plist")
         ConfigPlist = NSDictionary(contentsOfFile: file!)
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        let daydateFormatter = DateFormatter()
         daydateFormatter.dateFormat = "yyyy/MM/dd"
         liberateTimeStr = String(format: "%@ %@:00",daydateFormatter.string(from: Date()), ConfigPlist?["LiberateTime"] as! String)
         self.calctotaltime()
@@ -33,11 +33,14 @@ class ViewController: NSViewController {
             self.startLocalNotification(title: "回家吧", info: "现在已经是下班时间了")
         }
         self.myLabel.isHidden = true
+        let settingNotification = Notification.Name(rawValue: "SETTING")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setting(notice:)), name: settingNotification, object: nil)
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-            let daydate = daydateFormatter.string(from: Date())
+            let daydate = self.daydateFormatter.string(from: Date())
             if UserDefaults.standard.string(forKey:daydate) == nil{
                 UserDefaults.standard.set("true", forKey: daydate)
-                self.liberateTimeStr = String(format: "%@ %@:00",daydateFormatter.string(from: Date()), self.ConfigPlist?["LiberateTime"] as! String)
+                self.liberateTimeStr = String(format: "%@ %@:00",self.daydateFormatter.string(from: Date()), self.ConfigPlist?["LiberateTime"] as! String)
+                self.calctotaltime()
             }
             let elapsed = Date().timeIntervalSince(self.dateFormatter.date(from: self.liberateTimeStr)!)
             let timeInterval = -Int(elapsed)
@@ -54,6 +57,19 @@ class ViewController: NSViewController {
             }
             
         }
+    }
+    
+    @objc func setting(notice: Notification) {
+        DispatchQueue.main.async(execute: {
+            autoreleasepool {
+                if ((notice.name).rawValue == "SETTING") == true {
+                    let file = Bundle.main.path(forResource:"Config", ofType: "plist")
+                    self.ConfigPlist = NSDictionary(contentsOfFile: file!)
+                    self.liberateTimeStr = String(format: "%@ %@:00",self.daydateFormatter.string(from: Date()), self.ConfigPlist?["LiberateTime"] as! String)
+                    self.calctotaltime()
+                }
+            }
+        })
     }
 
     func calcTime(alltime:Int) -> String {

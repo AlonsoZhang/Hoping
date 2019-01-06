@@ -3,6 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>LiberateTime</key>
-	<string>18:00</string>
+	<string>17:30</string>
+	<key>Login</key>
+	<false/>
 </dict>
 </plist>

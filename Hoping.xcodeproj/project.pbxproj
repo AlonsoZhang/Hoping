@@ -13,6 +13,8 @@
 		0C8DB30A21DDAB51007DACEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C8DB30821DDAB51007DACEB /* Main.storyboard */; };
 		0C8DB31321DDAFF4007DACEB /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB31221DDAFF4007DACEB /* Window.swift */; };
 		0C8DB31521DDB09B007DACEB /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C8DB31421DDB09B007DACEB /* Config.plist */; };
+		0C8DB31721E0469D007DACEB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB31621E0469D007DACEB /* SettingViewController.swift */; };
+		0C8DB31B21E0B7E3007DACEB /* LoginServiceKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB31A21E0B7E3007DACEB /* LoginServiceKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		0C8DB30C21DDAB51007DACEB /* Hoping.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hoping.entitlements; sourceTree = "<group>"; };
 		0C8DB31221DDAFF4007DACEB /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		0C8DB31421DDB09B007DACEB /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		0C8DB31621E0469D007DACEB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		0C8DB31A21E0B7E3007DACEB /* LoginServiceKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServiceKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				0C8DB30621DDAB50007DACEB /* Assets.xcassets */,
 				0C8DB30821DDAB51007DACEB /* Main.storyboard */,
 				0C8DB31221DDAFF4007DACEB /* Window.swift */,
+				0C8DB31621E0469D007DACEB /* SettingViewController.swift */,
+				0C8DB31A21E0B7E3007DACEB /* LoginServiceKit.swift */,
 				0C8DB30B21DDAB51007DACEB /* Info.plist */,
 				0C8DB31421DDB09B007DACEB /* Config.plist */,
 				0C8DB30C21DDAB51007DACEB /* Hoping.entitlements */,
@@ -145,9 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C8DB31B21E0B7E3007DACEB /* LoginServiceKit.swift in Sources */,
 				0C8DB30521DDAB4E007DACEB /* ViewController.swift in Sources */,
 				0C8DB30321DDAB4E007DACEB /* AppDelegate.swift in Sources */,
 				0C8DB31321DDAFF4007DACEB /* Window.swift in Sources */,
+				0C8DB31721E0469D007DACEB /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

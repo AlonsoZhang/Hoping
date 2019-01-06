@@ -708,6 +708,12 @@
             <objects>
                 <menu id="tKa-MP-s6e">
                     <items>
+                        <menuItem title="Setting" id="hH8-0P-Tl5">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <segue destination="hrJ-db-s4l" kind="modal" id="I1G-DI-bTM"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Reset" id="7CH-g4-zEe">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
@@ -742,7 +748,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SEm-YA-qxl">
                                 <rect key="frame" x="738" y="0.0" width="64" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="eDE-v5-fLj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="eDE-v5-fLj"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="00:00:00" id="s3j-NK-jnb">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -770,6 +776,116 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="75" y="541"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="dNq-Ql-jxi">
+            <objects>
+                <windowController id="hrJ-db-s4l" sceneMemberID="viewController">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="AzV-7h-cuj">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="184" height="246"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+                        <connections>
+                            <outlet property="delegate" destination="hrJ-db-s4l" id="3Ww-NY-zyg"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="bvg-5s-VA5" kind="relationship" relationship="window.shadowedContentViewController" id="yaA-by-Fed"/>
+                    </connections>
+                </windowController>
+                <customObject id="zqi-cX-2Do" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="871"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="kEo-kE-E7g">
+            <objects>
+                <viewController id="bvg-5s-VA5" customClass="SettingViewController" customModule="Hoping" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="D65-jJ-OP2">
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="246"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UAn-Dg-mdF">
+                                <rect key="frame" x="54" y="210" width="76" height="18"/>
+                                <buttonCell key="cell" type="check" title="开机启动" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ETi-d2-8Ur">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="checkLogin:" target="bvg-5s-VA5" id="I9P-F4-rqt"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iHR-cw-1FW">
+                                <rect key="frame" x="31" y="175" width="58" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="UzT-eb-9Kn"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="下班时间" id="KaV-BC-hCQ">
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bdo-1I-Gk3">
+                                <rect key="frame" x="32" y="34" width="122" height="123"/>
+                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" datePickerStyle="clockAndCalendar" id="Vpy-Eh-rL4">
+                                    <font key="font" metaFont="system"/>
+                                    <date key="date" timeIntervalSinceReferenceDate="-595947600">
+                                        <!--1982-02-12 11:00:00 +0000-->
+                                    </date>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <datePickerElements key="datePickerElements" hour="YES" minute="YES"/>
+                                </datePickerCell>
+                                <connections>
+                                    <action selector="changeTime:" target="bvg-5s-VA5" id="9o2-Ay-qQE"/>
+                                </connections>
+                            </datePicker>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1nc-H4-CkO">
+                                <rect key="frame" x="95" y="172" width="56" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="52" id="rNK-Tj-eGf"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="18:00" id="75l-NC-32q">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mN5-YW-PWh">
+                                <rect key="frame" x="26" y="10" width="133" height="13"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Copyright © Alonso Zhang" id="jFp-pd-1BB">
+                                    <font key="font" metaFont="system" size="10"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Bdo-1I-Gk3" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="EBD-Oj-jaf"/>
+                            <constraint firstItem="1nc-H4-CkO" firstAttribute="centerY" secondItem="iHR-cw-1FW" secondAttribute="centerY" id="SIO-zv-zbt"/>
+                            <constraint firstItem="iHR-cw-1FW" firstAttribute="top" secondItem="UAn-Dg-mdF" secondAttribute="bottom" constant="20" id="T6b-ek-naG"/>
+                            <constraint firstItem="1nc-H4-CkO" firstAttribute="leading" secondItem="iHR-cw-1FW" secondAttribute="trailing" constant="10" id="clN-5z-1er"/>
+                            <constraint firstItem="Bdo-1I-Gk3" firstAttribute="top" secondItem="1nc-H4-CkO" secondAttribute="bottom" constant="15" id="hRx-5M-LhK"/>
+                            <constraint firstItem="mN5-YW-PWh" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="hY9-h9-E3b"/>
+                            <constraint firstItem="UAn-Dg-mdF" firstAttribute="top" secondItem="D65-jJ-OP2" secondAttribute="top" constant="20" id="j54-qy-T7I"/>
+                            <constraint firstItem="UAn-Dg-mdF" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="kMS-tN-dkZ"/>
+                            <constraint firstItem="mN5-YW-PWh" firstAttribute="top" secondItem="Bdo-1I-Gk3" secondAttribute="bottom" constant="15" id="lED-54-NXz"/>
+                            <constraint firstItem="iHR-cw-1FW" firstAttribute="leading" secondItem="Bdo-1I-Gk3" secondAttribute="leading" id="lgV-kL-8SF"/>
+                            <constraint firstAttribute="bottom" secondItem="mN5-YW-PWh" secondAttribute="bottom" constant="10" id="suM-9P-BGV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Bdo-1I-Gk3" id="jKI-pe-Ny4"/>
+                        <outlet property="endTime" destination="1nc-H4-CkO" id="xdH-PY-0wu"/>
+                        <outlet property="login" destination="UAn-Dg-mdF" id="Re2-2r-eer"/>
+                    </connections>
+                </viewController>
+                <customObject id="oV6-fy-jHT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="398" y="864"/>
         </scene>
     </scenes>
 </document>
