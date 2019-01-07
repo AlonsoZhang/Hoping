@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C29DE0321E331CC00229A1E /* NSProgressIndicator+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C29DE0221E331CC00229A1E /* NSProgressIndicator+Color.m */; };
 		0C8DB30321DDAB4E007DACEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB30221DDAB4E007DACEB /* AppDelegate.swift */; };
 		0C8DB30521DDAB4E007DACEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB30421DDAB4E007DACEB /* ViewController.swift */; };
 		0C8DB30721DDAB50007DACEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C8DB30621DDAB50007DACEB /* Assets.xcassets */; };
@@ -18,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C29DE0021E331CC00229A1E /* Hoping-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hoping-Bridging-Header.h"; sourceTree = "<group>"; };
+		0C29DE0121E331CC00229A1E /* NSProgressIndicator+Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSProgressIndicator+Color.h"; sourceTree = "<group>"; };
+		0C29DE0221E331CC00229A1E /* NSProgressIndicator+Color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSProgressIndicator+Color.m"; sourceTree = "<group>"; };
 		0C8DB2FF21DDAB4E007DACEB /* Hoping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C8DB30221DDAB4E007DACEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C8DB30421DDAB4E007DACEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,9 +72,12 @@
 				0C8DB31221DDAFF4007DACEB /* Window.swift */,
 				0C8DB31621E0469D007DACEB /* SettingViewController.swift */,
 				0C8DB31A21E0B7E3007DACEB /* LoginServiceKit.swift */,
+				0C29DE0121E331CC00229A1E /* NSProgressIndicator+Color.h */,
+				0C29DE0221E331CC00229A1E /* NSProgressIndicator+Color.m */,
 				0C8DB30B21DDAB51007DACEB /* Info.plist */,
 				0C8DB31421DDB09B007DACEB /* Config.plist */,
 				0C8DB30C21DDAB51007DACEB /* Hoping.entitlements */,
+				0C29DE0021E331CC00229A1E /* Hoping-Bridging-Header.h */,
 			);
 			path = Hoping;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 				TargetAttributes = {
 					0C8DB2FE21DDAB4E007DACEB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -154,6 +162,7 @@
 				0C8DB31B21E0B7E3007DACEB /* LoginServiceKit.swift in Sources */,
 				0C8DB30521DDAB4E007DACEB /* ViewController.swift in Sources */,
 				0C8DB30321DDAB4E007DACEB /* AppDelegate.swift in Sources */,
+				0C29DE0321E331CC00229A1E /* NSProgressIndicator+Color.m in Sources */,
 				0C8DB31321DDAFF4007DACEB /* Window.swift in Sources */,
 				0C8DB31721E0469D007DACEB /* SettingViewController.swift in Sources */,
 			);
@@ -292,6 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8LP5KW6GHL;
@@ -302,6 +312,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hyc.Hoping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hoping/Hoping-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -310,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8LP5KW6GHL;
@@ -320,6 +333,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hyc.Hoping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hoping/Hoping-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

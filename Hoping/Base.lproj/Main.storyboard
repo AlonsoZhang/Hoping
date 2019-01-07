@@ -686,7 +686,7 @@
             <objects>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <windowController id="B8D-0N-5wS" customClass="Window" customModule="Hoping" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" identifier="WINDOW" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES"/>
                         <windowPositionMask key="initialPositionMask" bottomStrut="YES"/>
                         <rect key="contentRect" x="0.0" y="0.0" width="800" height="10"/>
@@ -708,16 +708,16 @@
             <objects>
                 <menu id="tKa-MP-s6e">
                     <items>
-                        <menuItem title="Setting" id="hH8-0P-Tl5">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <segue destination="hrJ-db-s4l" kind="modal" id="I1G-DI-bTM"/>
-                            </connections>
-                        </menuItem>
                         <menuItem title="Reset" id="7CH-g4-zEe">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="Reset:" target="XfG-lQ-9wD" id="oKi-v4-LKi"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Setting" id="hH8-0P-Tl5">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <segue destination="hrJ-db-s4l" kind="show" id="I1G-DI-bTM"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Quit" id="3Hu-iu-0v0">
@@ -772,6 +772,7 @@
                         <outlet property="hopingProgress" destination="AhU-ss-Wnf" id="Iw9-c0-wg5"/>
                         <outlet property="myLabel" destination="SEm-YA-qxl" id="FCK-1c-No0"/>
                         <outlet property="myMenu" destination="tKa-MP-s6e" id="YYy-U3-Epm"/>
+                        <outlet property="reset" destination="7CH-g4-zEe" id="V6c-vl-bjP"/>
                     </connections>
                 </viewController>
             </objects>
@@ -780,12 +781,12 @@
         <!--Window Controller-->
         <scene sceneID="dNq-Ql-jxi">
             <objects>
-                <windowController id="hrJ-db-s4l" sceneMemberID="viewController">
-                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="AzV-7h-cuj">
+                <windowController id="hrJ-db-s4l" customClass="Window" customModule="Hoping" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" identifier="SETTING" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="AzV-7h-cuj">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="184" height="246"/>
+                        <rect key="contentRect" x="196" y="240" width="184" height="291"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
                         <connections>
                             <outlet property="delegate" destination="hrJ-db-s4l" id="3Ww-NY-zyg"/>
@@ -797,18 +798,18 @@
                 </windowController>
                 <customObject id="zqi-cX-2Do" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="871"/>
+            <point key="canvasLocation" x="75" y="900"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="kEo-kE-E7g">
             <objects>
                 <viewController id="bvg-5s-VA5" customClass="SettingViewController" customModule="Hoping" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="D65-jJ-OP2">
-                        <rect key="frame" x="0.0" y="0.0" width="184" height="246"/>
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="291"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UAn-Dg-mdF">
-                                <rect key="frame" x="54" y="210" width="76" height="18"/>
+                                <rect key="frame" x="54" y="255" width="76" height="18"/>
                                 <buttonCell key="cell" type="check" title="开机启动" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ETi-d2-8Ur">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -862,11 +863,23 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w63-3m-8AH">
+                                <rect key="frame" x="39" y="209" width="107" height="32"/>
+                                <buttonCell key="cell" type="push" title="进度条颜色" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MZU-cO-DIN">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="progressbarColor:" target="bvg-5s-VA5" id="ZP0-R0-Ib9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Bdo-1I-Gk3" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="EBD-Oj-jaf"/>
+                            <constraint firstItem="w63-3m-8AH" firstAttribute="top" secondItem="UAn-Dg-mdF" secondAttribute="bottom" constant="20" id="JaF-UH-xu9"/>
+                            <constraint firstItem="1nc-H4-CkO" firstAttribute="top" secondItem="w63-3m-8AH" secondAttribute="bottom" constant="20" id="Ogn-Kc-9Jw"/>
                             <constraint firstItem="1nc-H4-CkO" firstAttribute="centerY" secondItem="iHR-cw-1FW" secondAttribute="centerY" id="SIO-zv-zbt"/>
-                            <constraint firstItem="iHR-cw-1FW" firstAttribute="top" secondItem="UAn-Dg-mdF" secondAttribute="bottom" constant="20" id="T6b-ek-naG"/>
+                            <constraint firstItem="w63-3m-8AH" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="Z6E-nU-76C"/>
                             <constraint firstItem="1nc-H4-CkO" firstAttribute="leading" secondItem="iHR-cw-1FW" secondAttribute="trailing" constant="10" id="clN-5z-1er"/>
                             <constraint firstItem="Bdo-1I-Gk3" firstAttribute="top" secondItem="1nc-H4-CkO" secondAttribute="bottom" constant="15" id="hRx-5M-LhK"/>
                             <constraint firstItem="mN5-YW-PWh" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="hY9-h9-E3b"/>
@@ -885,7 +898,7 @@
                 </viewController>
                 <customObject id="oV6-fy-jHT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398" y="864"/>
+            <point key="canvasLocation" x="398" y="892.5"/>
         </scene>
     </scenes>
 </document>

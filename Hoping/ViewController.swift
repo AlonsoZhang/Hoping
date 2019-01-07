@@ -10,6 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var reset: NSMenuItem!
     @IBOutlet weak var hopingProgress: NSProgressIndicator!
     @IBOutlet var myMenu: NSMenu!
     @IBOutlet weak var myLabel: NSTextField!
@@ -33,8 +34,16 @@ class ViewController: NSViewController {
             self.startLocalNotification(title: "回家吧", info: "现在已经是下班时间了")
         }
         self.myLabel.isHidden = true
+        let color = UserDefaults.standard.colorForKey(key: "procresscolor")
+        if (color != nil){
+            self.hopingProgress.setCustomColor(UserDefaults.standard.colorForKey(key: "procresscolor"))
+        }else{
+            self.hopingProgress.setCustomColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        }
         let settingNotification = Notification.Name(rawValue: "SETTING")
         NotificationCenter.default.addObserver(self, selector: #selector(self.setting(notice:)), name: settingNotification, object: nil)
+        let colorNotification = Notification.Name(rawValue: "COLOR")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setcolor(notice:)), name: colorNotification, object: nil)
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
             let daydate = self.daydateFormatter.string(from: Date())
             if UserDefaults.standard.string(forKey:daydate) == nil{
@@ -46,12 +55,14 @@ class ViewController: NSViewController {
             let timeInterval = -Int(elapsed)
             self.hopingProgress.doubleValue = 100 - Double(timeInterval)/Double(self.totaltime)*100
             if timeInterval >= 0 && timeInterval < 3600*9 {
+                self.reset.isHidden = false
                 self.myLabel.stringValue = self.calcTime(alltime: timeInterval)
                 if (self.hopingProgress.doubleValue == 100){
                     sleep(1)
                     self.startLocalNotification(title: "喝杯水吧", info: "一天工作辛苦了")
                 }
             }else{
+                self.reset.isHidden = true
                 self.myLabel.stringValue = "下班时间"
                 self.hopingProgress.doubleValue = 0
             }
@@ -67,6 +78,16 @@ class ViewController: NSViewController {
                     self.ConfigPlist = NSDictionary(contentsOfFile: file!)
                     self.liberateTimeStr = String(format: "%@ %@:00",self.daydateFormatter.string(from: Date()), self.ConfigPlist?["LiberateTime"] as! String)
                     self.calctotaltime()
+                }
+            }
+        })
+    }
+    
+    @objc func setcolor(notice: Notification) {
+        DispatchQueue.main.async(execute: {
+            autoreleasepool {
+                if ((notice.name).rawValue == "COLOR") == true {
+                    self.hopingProgress.setCustomColor(UserDefaults.standard.colorForKey(key: "procresscolor"))
                 }
             }
         })
