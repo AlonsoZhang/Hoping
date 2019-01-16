@@ -21,7 +21,7 @@ class ViewController: NSViewController {
     let daydateFormatter = DateFormatter()
     var totaltime = 0
     var liberateTimeStr = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let file = Bundle.main.path(forResource:"Config", ofType: "plist")
@@ -121,10 +121,6 @@ class ViewController: NSViewController {
     
     @IBAction func Reset(_ sender: NSMenuItem) {
        self.calctotaltime()
-    }
-    
-    @IBAction func Quit(_ sender: NSMenuItem) {
-        NSApp.terminate(self)
     }
     
     func startLocalNotification(title:String,info:String) {

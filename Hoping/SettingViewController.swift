@@ -65,7 +65,10 @@ class SettingViewController: NSViewController {
         NotificationCenter.default.post(name: notificationName, object: self, userInfo: nil)
     }
     
-    // 切换自启
+    @IBAction func quit(_ sender: NSButton) {
+        NSApp.terminate(self)
+    }
+
     func launchAtStartup(on: Bool) {
         let appPath = Bundle.main.bundlePath
         if on {

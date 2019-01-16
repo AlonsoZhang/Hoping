@@ -48,7 +48,8 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Hoping" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Hoping" id="4sb-4s-VLi">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -720,12 +721,6 @@
                                 <segue destination="hrJ-db-s4l" kind="show" id="I1G-DI-bTM"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Quit" id="3Hu-iu-0v0">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="Quit:" target="XfG-lQ-9wD" id="zXP-e2-vnz"/>
-                            </connections>
-                        </menuItem>
                     </items>
                 </menu>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -786,7 +781,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="184" height="291"/>
+                        <rect key="contentRect" x="196" y="240" width="184" height="332"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
                         <connections>
                             <outlet property="delegate" destination="hrJ-db-s4l" id="3Ww-NY-zyg"/>
@@ -805,11 +800,11 @@
             <objects>
                 <viewController id="bvg-5s-VA5" customClass="SettingViewController" customModule="Hoping" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="D65-jJ-OP2">
-                        <rect key="frame" x="0.0" y="0.0" width="184" height="291"/>
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="332"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UAn-Dg-mdF">
-                                <rect key="frame" x="54" y="255" width="76" height="18"/>
+                                <rect key="frame" x="54" y="296" width="76" height="18"/>
                                 <buttonCell key="cell" type="check" title="开机启动" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ETi-d2-8Ur">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -819,7 +814,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iHR-cw-1FW">
-                                <rect key="frame" x="31" y="175" width="58" height="17"/>
+                                <rect key="frame" x="31" y="216" width="58" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="UzT-eb-9Kn"/>
                                 </constraints>
@@ -830,7 +825,7 @@
                                 </textFieldCell>
                             </textField>
                             <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bdo-1I-Gk3">
-                                <rect key="frame" x="32" y="34" width="122" height="123"/>
+                                <rect key="frame" x="32" y="75" width="122" height="123"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" datePickerStyle="clockAndCalendar" id="Vpy-Eh-rL4">
                                     <font key="font" metaFont="system"/>
                                     <date key="date" timeIntervalSinceReferenceDate="-595947600">
@@ -845,7 +840,7 @@
                                 </connections>
                             </datePicker>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1nc-H4-CkO">
-                                <rect key="frame" x="95" y="172" width="56" height="24"/>
+                                <rect key="frame" x="95" y="213" width="56" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="52" id="rNK-Tj-eGf"/>
                                 </constraints>
@@ -864,7 +859,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w63-3m-8AH">
-                                <rect key="frame" x="39" y="209" width="107" height="32"/>
+                                <rect key="frame" x="39" y="250" width="107" height="32"/>
                                 <buttonCell key="cell" type="push" title="进度条颜色" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MZU-cO-DIN">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -873,9 +868,21 @@
                                     <action selector="progressbarColor:" target="bvg-5s-VA5" id="ZP0-R0-Ib9"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z1g-br-NOI">
+                                <rect key="frame" x="45" y="26" width="94" height="32"/>
+                                <buttonCell key="cell" type="push" title="退出软件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eu4-UQ-az9">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="quit:" target="bvg-5s-VA5" id="ScG-ck-ga5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="mN5-YW-PWh" firstAttribute="top" secondItem="z1g-br-NOI" secondAttribute="bottom" constant="10" id="1zj-n4-ke3"/>
                             <constraint firstItem="Bdo-1I-Gk3" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="EBD-Oj-jaf"/>
+                            <constraint firstItem="z1g-br-NOI" firstAttribute="top" secondItem="Bdo-1I-Gk3" secondAttribute="bottom" constant="25" id="GZ7-oE-Xvw"/>
                             <constraint firstItem="w63-3m-8AH" firstAttribute="top" secondItem="UAn-Dg-mdF" secondAttribute="bottom" constant="20" id="JaF-UH-xu9"/>
                             <constraint firstItem="1nc-H4-CkO" firstAttribute="top" secondItem="w63-3m-8AH" secondAttribute="bottom" constant="20" id="Ogn-Kc-9Jw"/>
                             <constraint firstItem="1nc-H4-CkO" firstAttribute="centerY" secondItem="iHR-cw-1FW" secondAttribute="centerY" id="SIO-zv-zbt"/>
@@ -885,7 +892,7 @@
                             <constraint firstItem="mN5-YW-PWh" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="hY9-h9-E3b"/>
                             <constraint firstItem="UAn-Dg-mdF" firstAttribute="top" secondItem="D65-jJ-OP2" secondAttribute="top" constant="20" id="j54-qy-T7I"/>
                             <constraint firstItem="UAn-Dg-mdF" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="kMS-tN-dkZ"/>
-                            <constraint firstItem="mN5-YW-PWh" firstAttribute="top" secondItem="Bdo-1I-Gk3" secondAttribute="bottom" constant="15" id="lED-54-NXz"/>
+                            <constraint firstItem="z1g-br-NOI" firstAttribute="centerX" secondItem="D65-jJ-OP2" secondAttribute="centerX" id="lEo-EU-qzG"/>
                             <constraint firstItem="iHR-cw-1FW" firstAttribute="leading" secondItem="Bdo-1I-Gk3" secondAttribute="leading" id="lgV-kL-8SF"/>
                             <constraint firstAttribute="bottom" secondItem="mN5-YW-PWh" secondAttribute="bottom" constant="10" id="suM-9P-BGV"/>
                         </constraints>
@@ -898,7 +905,7 @@
                 </viewController>
                 <customObject id="oV6-fy-jHT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398" y="892.5"/>
+            <point key="canvasLocation" x="398" y="894"/>
         </scene>
     </scenes>
 </document>
